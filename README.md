@@ -1,13 +1,27 @@
 # session-testnet-dockerfile
 
-## example usage
+## Requirements
+
+* Docker
+* Replace `x.x.x.x` with your external IP address in `docker-compose.yml`
+* Optionally add more nodes (following the paradigm of incrementing ports + folder names)
+
+## Example usage
+
+`docker compose up` - start in foreground
+`docker compose up -d` - start in background
+
+## Example of adding more nodes
+
 ```
 services:
   stagenet:
-    image: javabudd/session-testnet:2.0.0
+    build:
+      dockerfile: Dockerfile
+      context: .
     ports:
-      - "13025:13025"
-      - "13022:13022"
+      - "10000:10000"
+      - "10001:10001"
     restart: unless-stopped
     tty: true
     stdin_open: true
@@ -20,10 +34,12 @@ services:
         hard: 65535
     environment:
       - SERVICE_NODE_IP_ADDRESS=x.x.x.x
-      - QUORUMNET_PORT=13025
-      - P2P_PORT=13022
+      - QUORUMNET_PORT=10000
+      - P2P_PORT=10001
   stagenet2:
-    image: javabudd/session-testnet:2.0.0
+    build:
+      dockerfile: Dockerfile
+      context: .
     restart: unless-stopped
     privileged: true
     volumes:
@@ -31,8 +47,8 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "12025:12025"
-      - "12022:12022"
+      - "10002:10002"
+      - "10003:10003"
     ulimits:
       nproc: 65535
       nofile:
@@ -40,6 +56,6 @@ services:
         hard: 65535
     environment:
       - SERVICE_NODE_IP_ADDRESS=x.x.x.x
-      - QUORUMNET_PORT=12025
-      - P2P_PORT=12022
+      - QUORUMNET_PORT=10002
+      - P2P_PORT=10003
 ```
