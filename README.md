@@ -8,8 +8,8 @@
 
 ## Example usage
 
-`docker compose up` - start in foreground
-`docker compose up -d` - start in background
+* `docker compose up` - start in foreground
+* `docker compose up -d` - start in background
 
 ## Example of adding more nodes
 
