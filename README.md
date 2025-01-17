@@ -1,4 +1,4 @@
-# session-testnet-dockerfile
+# session-testnet-multinode-docker
 
 ## Requirements
 
