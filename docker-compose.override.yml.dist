@@ -1,0 +1,5 @@
+services:
+  session:
+    environment:
+      - SERVICE_NODE_IP_ADDRESS=
+      - L2_PROVIDER=

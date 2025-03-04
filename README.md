@@ -3,7 +3,9 @@
 ## Requirements
 
 * Docker
-* Replace `x.x.x.x` with your external IP address in `docker-compose.yml`
+* Copy `docker-compose.override.yml.dist` to `docker-compose.override.yml`
+* Replace `SERVICE_NODE_IP_ADDRESS` with your external IP address in `docker-compose.override.yml`
+* Replace `L2_PROVIDER` with your desired l2 provider in `docker-compose.override.yml`
 * Optionally add more nodes (following the paradigm of incrementing ports + folder names)
 
 ## Example usage
@@ -11,31 +13,14 @@
 * `docker compose up` - start in foreground
 * `docker compose up -d` - start in background
 
-## Example of adding more nodes
+## Example of adding more nodes (docker-compose.override.yml)
 
 ```
 services:
   session:
-    build:
-      dockerfile: Dockerfile
-      context: .
-    ports:
-      - "10000:10000"
-      - "10001:10001"
-    restart: unless-stopped
-    tty: true
-    stdin_open: true
-    volumes:
-      - ./oxen:/var/lib/oxen
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 65535
-        hard: 65535
     environment:
       - SERVICE_NODE_IP_ADDRESS=x.x.x.x
-      - QUORUMNET_PORT=10000
-      - P2P_PORT=10001
+      - L2_PROVIDER=https://foo.bar.rpc
   session2:
     build:
       dockerfile: Dockerfile
@@ -47,8 +32,12 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "10002:10002"
-      - "10003:10003"
+      - "10005:22020/tcp"
+      - "10005:22020/udp"
+      - "10006:22021/tcp"
+      - "10007:22022/tcp"
+      - "10008:22025/tcp"
+      - "10009:1090/udp"
     ulimits:
       nproc: 65535
       nofile:
@@ -56,6 +45,5 @@ services:
         hard: 65535
     environment:
       - SERVICE_NODE_IP_ADDRESS=x.x.x.x
-      - QUORUMNET_PORT=10002
-      - P2P_PORT=10003
+      - L2_PROVIDER=https://foo.bar.rpc
 ```
