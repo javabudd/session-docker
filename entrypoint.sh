@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DATA_DIR=/var/lib/oxen/stagenet
-LOG_FILE=/var/log/oxen/stagenet.log
+DATA_DIR=/var/lib/oxen
+LOG_FILE=/var/log/oxen/oxen.log
 
 if [ -z "$SERVICE_NODE_IP_ADDRESS" ]; then
   if [ -z "$AS_FARGATE" ]; then
@@ -37,13 +37,13 @@ if [ -z "$SERVICE_NODE_IP_ADDRESS" ]; then
 fi
 
 if [ -n "$AS_FARGATE" ]; then
-  DATA_DIR=/var/lib/oxen/stagenet-${ECS_SERVICE_NAME}
-  LOG_FILE=/var/lib/oxen/stagenet-${ECS_SERVICE_NAME}/logs/stagenet.log
+  DATA_DIR=/var/lib/oxen/oxen-${ECS_SERVICE_NAME}
+  LOG_FILE=/var/lib/oxen/oxen-${ECS_SERVICE_NAME}/logs/oxen.log
 fi
 
 export DATA_DIR
 export LOG_FILE
 
-envsubst < /etc/oxen/stagenet_template.conf > /etc/oxen/stagenet.conf
+envsubst < /etc/oxen/oxen_template.conf > /etc/oxen/oxen.conf
 
 exec "$@"

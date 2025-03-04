@@ -1,5 +1,5 @@
 services:
-  stagenet:
+  session:
     build:
       dockerfile: Dockerfile
       context: .

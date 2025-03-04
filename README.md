@@ -1,4 +1,4 @@
-# session-testnet-multinode-docker
+# session-multinode-docker
 
 ## Requirements
 
@@ -15,7 +15,7 @@
 
 ```
 services:
-  stagenet:
+  session:
     build:
       dockerfile: Dockerfile
       context: .
@@ -36,7 +36,7 @@ services:
       - SERVICE_NODE_IP_ADDRESS=x.x.x.x
       - QUORUMNET_PORT=10000
       - P2P_PORT=10001
-  stagenet2:
+  session2:
     build:
       dockerfile: Dockerfile
       context: .

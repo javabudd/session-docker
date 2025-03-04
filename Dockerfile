@@ -18,9 +18,9 @@ RUN echo "deb https://deb.oxen.io noble main" | tee /etc/apt/sources.list.d/oxen
 
 RUN apt update
 
-RUN apt install -y session-stagenet-node
+RUN apt install -y oxen-node
 
-COPY etc/oxen/stagenet.conf /etc/oxen/stagenet_template.conf
+COPY etc/oxen/oxen.conf /etc/oxen/oxen_template.conf
 
 COPY entrypoint.sh /
 
@@ -28,4 +28,4 @@ RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["oxend-stagenet", "--non-interactive", "--config-file=/etc/oxen/stagenet.conf"]
+CMD ["oxend", "--non-interactive", "--config-file=/etc/oxen/oxen.conf"]
