@@ -18,7 +18,7 @@ RUN echo "deb https://deb.oxen.io noble main" | tee /etc/apt/sources.list.d/oxen
 
 RUN apt update
 
-RUN apt install -y oxen-node
+RUN apt install -y oxen-service-node
 
 COPY etc/oxen/oxen.conf /etc/oxen/oxen_template.conf
 
