@@ -3,3 +3,6 @@ services:
     environment:
       - SERVICE_NODE_IP_ADDRESS=
       - L2_PROVIDER=
+      - QUORUMNET_PORT=
+      - P2P_PORT=
+      - LOKINET_PORT=
