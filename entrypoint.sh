@@ -45,5 +45,6 @@ export DATA_DIR
 export LOG_FILE
 
 envsubst < /etc/oxen/oxen_template.conf > /etc/oxen/oxen.conf
+envsubst < /etc/loki/lokinet-router_template.ini > /etc/loki/lokinet-router.ini
 
 exec "$@"
