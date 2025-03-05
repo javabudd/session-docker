@@ -5,6 +5,7 @@ services:
       context: .
     restart: unless-stopped
     tty: true
+    privileged: true
     stdin_open: true
     volumes:
       - ./oxen:/var/lib/oxen
