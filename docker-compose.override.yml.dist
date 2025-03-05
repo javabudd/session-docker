@@ -1,12 +1,12 @@
 services:
   session:
     ports:
-      - "10000:22020/tcp"
-      - "10000:22020/udp"
-      - "10001:22021/tcp"
-      - "10002:22022/tcp"
-      - "10003:22025/tcp"
-      - "10004:1090/udp"
+      - "10000:10000/tcp"
+      - "10000:10000/udp"
+      - "10001:10001/tcp"
+      - "10002:10002/tcp"
+      - "10003:10003/tcp"
+      - "10004:10004/udp"
     environment:
       - SERVICE_NODE_IP_ADDRESS=
       - L2_PROVIDER=
