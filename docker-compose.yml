@@ -3,13 +3,6 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
-    ports:
-      - "10000:22020/tcp"
-      - "10000:22020/udp"
-      - "10001:22021/tcp"
-      - "10002:22022/tcp"
-      - "10003:22025/tcp"
-      - "10004:1090/udp"
     restart: unless-stopped
     tty: true
     stdin_open: true
@@ -20,6 +13,3 @@ services:
       nofile:
         soft: 65535
         hard: 65535
-    environment:
-      - SERVICE_NODE_IP_ADDRESS=x.x.x.x
-      - L2_PROVIDER=https://sepolia-rollup.arbitrum.io/rpc,...

@@ -1,8 +1,17 @@
 services:
   session:
+    ports:
+      - "10000:22020/tcp"
+      - "10000:22020/udp"
+      - "10001:22021/tcp"
+      - "10002:22022/tcp"
+      - "10003:22025/tcp"
+      - "10004:1090/udp"
     environment:
       - SERVICE_NODE_IP_ADDRESS=
       - L2_PROVIDER=
-      - QUORUMNET_PORT=
-      - P2P_PORT=
-      - LOKINET_PORT=
+      - LMQ_PORT=10000
+      - STORAGE_SERVER_PORT=10001
+      - P2P_PORT=10002
+      - QUORUMNET_PORT=10003
+      - LOKINET_PORT=10004
