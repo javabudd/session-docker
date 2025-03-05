@@ -21,6 +21,7 @@ RUN apt update
 RUN apt install -y oxen-service-node
 
 COPY etc/oxen/oxen.conf /etc/oxen/oxen_template.conf
+COPY etc/oxen/storage.conf /etc/oxen/storage_template.conf
 COPY etc/loki/lokinet-router.ini /etc/loki/lokinet-router_template.ini
 
 COPY entrypoint.sh /
