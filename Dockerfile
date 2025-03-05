@@ -30,4 +30,4 @@ RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["oxend", "--non-interactive", "--config-file=/etc/oxen/oxen.conf"]
+CMD ["oxend", "--non-interactive", "--config-file=/etc/oxen/oxen.conf;", "oxen-storage;", "lokinet /etc/loki/lokinet-router.ini"]
