@@ -20,4 +20,4 @@ RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD lokinet -r --config-file=/etc/oxen/oxen.conf; oxen-storage; lokinet /etc/loki/lokinet-router.ini;
+CMD ["lokinet", "-r", "/etc/loki/lokinet-router.ini"]
