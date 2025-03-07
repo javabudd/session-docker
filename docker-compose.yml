@@ -46,6 +46,7 @@ services:
         ipv4_address: 10.0.5.4
     volumes:
       - ./oxen:/var/lib/oxen
+      - ./lokinet-data:/var/lib/lokinet/router
     ulimits:
       nproc: 65535
       nofile:
