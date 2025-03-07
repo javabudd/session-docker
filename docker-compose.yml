@@ -20,6 +20,8 @@ services:
       context: ./.docker
     restart: unless-stopped
     privileged: true
+    volumes:
+      - ./oxen:/var/lib/oxen
     ulimits:
       nproc: 65535
       nofile:
