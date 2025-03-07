@@ -17,6 +17,7 @@ services:
     ports:
       - "10001:10001/tcp"
     environment:
+      - LMQ_PORT=10000
       - STORAGE_SERVER_PORT=10001
   session-lokinet:
     ports:
