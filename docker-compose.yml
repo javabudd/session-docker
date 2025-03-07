@@ -13,7 +13,7 @@ services:
       session:
         ipv4_address: 10.0.5.2
     volumes:
-      - ./oxen:/var/lib/oxen
+      - ./oxen-data:/var/lib/oxen
     ulimits:
       nproc: 65535
       nofile:
@@ -29,7 +29,7 @@ services:
       session:
         ipv4_address: 10.0.5.3
     volumes:
-      - ./oxen:/var/lib/oxen
+      - ./oxen-data:/var/lib/oxen
       - ./storage-data:/var/lib/oxen/storage
     ulimits:
       nproc: 65535
@@ -46,7 +46,7 @@ services:
       session:
         ipv4_address: 10.0.5.4
     volumes:
-      - ./oxen:/var/lib/oxen
+      - ./oxen-data:/var/lib/oxen
       - ./lokinet-data:/var/lib/lokinet/router
     ulimits:
       nproc: 65535
