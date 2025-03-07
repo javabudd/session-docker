@@ -9,7 +9,6 @@ services:
     stdin_open: true
     volumes:
       - ./oxen:/var/lib/oxen
-      - ./oxen.sock:/var/lib/oxen/oxend.sock
     ulimits:
       nproc: 65535
       nofile:
