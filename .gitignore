@@ -4,3 +4,4 @@ docker-compose.override.yml
 oxen-data
 lokinet-data
 storage-data
+.env
