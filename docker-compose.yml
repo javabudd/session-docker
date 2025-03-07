@@ -2,7 +2,7 @@ services:
   session:
     build:
       dockerfile: Dockerfile
-      context: .
+      context: ./.docker
     restart: unless-stopped
     tty: true
     privileged: true
@@ -14,3 +14,17 @@ services:
       nofile:
         soft: 65535
         hard: 65535
+  session-storage:
+    build:
+      dockerfile: Dockerfile-storage-server
+      context: ./.docker
+    restart: unless-stopped
+    volumes:
+      - ./oxen:/var/lib/oxen
+  session-lokinet:
+    build:
+      dockerfile: Dockerfile-lokinet
+      context: ./.docker
+    restart: unless-stopped
+    volumes:
+      - ./oxen:/var/lib/oxen
