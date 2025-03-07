@@ -9,6 +9,9 @@ services:
       - "6969"
     privileged: true
     stdin_open: true
+    networks:
+      session:
+        ipv4_address: 10.0.5.2
     volumes:
       - ./oxen:/var/lib/oxen
     ulimits:
@@ -22,6 +25,9 @@ services:
       context: ./.docker
     restart: unless-stopped
     privileged: true
+    networks:
+      session:
+        ipv4_address: 10.0.5.3
     volumes:
       - ./oxen:/var/lib/oxen
     ulimits:
@@ -35,6 +41,9 @@ services:
       context: ./.docker
     privileged: true
     restart: unless-stopped
+    networks:
+      session:
+        ipv4_address: 10.0.5.4
     volumes:
       - ./oxen:/var/lib/oxen
     ulimits:
@@ -42,3 +51,9 @@ services:
       nofile:
         soft: 65535
         hard: 65535
+
+networks:
+  session:
+    ipam:
+      config:
+        - subnet: 10.0.5.0/24
