@@ -1,4 +1,4 @@
-# session-multinode-docker
+# session-docker
 
 ## Requirements
 
