@@ -10,6 +10,7 @@ services:
       - L2_PROVIDER=
       - LOKINET_BIND_IP=
       - LMQ_PORT=10000
+      - STORAGE_SERVER_PORT=10001
       - P2P_PORT=10002
       - QUORUMNET_PORT=10003
   session-storage:
