@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "6969:6969"
+      - "6969"
     privileged: true
     stdin_open: true
     volumes:
