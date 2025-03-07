@@ -15,3 +15,8 @@
 
 * `docker compose up` - start in foreground
 * `docker compose up -d` - start in background
+
+## Stake a node
+
+* `docker compose exec session bash`
+* `oxend prepare_registration...`
