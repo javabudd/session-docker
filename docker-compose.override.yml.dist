@@ -23,5 +23,6 @@ services:
     ports:
       - "10004:10004/udp"
     environment:
+      - SERVICE_NODE_IP_ADDRESS=
       - LOKINET_PORT=10004
       - LOKINET_BIND_IP=
