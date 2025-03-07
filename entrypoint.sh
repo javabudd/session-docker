@@ -49,6 +49,6 @@ envsubst < /etc/oxen/storage_template.conf > /etc/oxen/storage.conf
 envsubst < /etc/loki/lokinet-router_template.ini > /etc/loki/lokinet-router.ini
 
 oxen-storage &
-lokinet /etc/loki/lokinet-router.ini &
+lokinet -r /etc/loki/lokinet-router.ini &
 
 exec "$@"
