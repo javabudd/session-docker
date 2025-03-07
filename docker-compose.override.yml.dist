@@ -1,28 +1,26 @@
 services:
   session:
     ports:
-      - "10000:10000/tcp"
-      - "10000:10000/udp"
-      - "10002:10002/tcp"
-      - "10003:10003/tcp"
+      - "${LMQ_PORT:?}:${LMQ_PORT:?}/tcp"
+      - "${LMQ_PORT:?}:${LMQ_PORT:?}/udp"
+      - "${P2P_PORT:?}:${P2P_PORT:?}/tcp"
+      - "${QUORUMNET_PORT:?}:${QUORUMNET_PORT:?}/tcp"
     environment:
-      - SERVICE_NODE_IP_ADDRESS=
-      - L2_PROVIDER=
-      - LOKINET_BIND_IP=
-      - LMQ_PORT=10000
-      - STORAGE_SERVER_PORT=10001
-      - P2P_PORT=10002
-      - QUORUMNET_PORT=10003
+      - SERVICE_NODE_IP_ADDRESS=${SERVICE_NODE_IP_ADDRESS:?}
+      - L2_PROVIDER=${L2_PROVIDER:?}
+      - LMQ_PORT=${LMQ_PORT:?}
+      - STORAGE_SERVER_PORT=${STORAGE_SERVER_PORT:?}
+      - P2P_PORT=${P2P_PORT:?}
+      - QUORUMNET_PORT=${QUORUMNET_PORT:?}
   session-storage:
     ports:
-      - "10001:10001/tcp"
+      - "${STORAGE_SERVER_PORT:?}:${STORAGE_SERVER_PORT:?}/tcp"
     environment:
-      - LMQ_PORT=10000
-      - STORAGE_SERVER_PORT=10001
+      - LMQ_PORT=${LMQ_PORT:?}
+      - STORAGE_SERVER_PORT=${STORAGE_SERVER_PORT:?}
   session-lokinet:
     ports:
-      - "10004:10004/udp"
+      - "${LOKINET_PORT:?}:${LOKINET_PORT:?}/udp"
     environment:
-      - SERVICE_NODE_IP_ADDRESS=
-      - LOKINET_PORT=10004
-      - LOKINET_BIND_IP=
+      - SERVICE_NODE_IP_ADDRESS=${SERVICE_NODE_IP_ADDRESS:?}
+      - LOKINET_PORT=${LOKINET_PORT:?}
