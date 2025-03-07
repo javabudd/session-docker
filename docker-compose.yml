@@ -19,12 +19,14 @@ services:
       dockerfile: Dockerfile-storage-server
       context: ./.docker
     restart: unless-stopped
+    privileged: true
     volumes:
       - ./oxen:/var/lib/oxen
   session-lokinet:
     build:
       dockerfile: Dockerfile-lokinet
       context: ./.docker
+    privileged: true
     restart: unless-stopped
     volumes:
       - ./oxen:/var/lib/oxen
