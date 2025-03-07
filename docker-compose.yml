@@ -3,10 +3,20 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./.docker
+    environment:
+      - SERVICE_NODE_IP_ADDRESS=${SERVICE_NODE_IP_ADDRESS:?}
+      - L2_PROVIDER=${L2_PROVIDER:?}
+      - LMQ_PORT=${LMQ_PORT:?}
+      - STORAGE_SERVER_PORT=${STORAGE_SERVER_PORT:?}
+      - P2P_PORT=${P2P_PORT:?}
+      - QUORUMNET_PORT=${QUORUMNET_PORT:?}
     restart: unless-stopped
     tty: true
     ports:
-      - "6969"
+      - "${LMQ_PORT:?}:${LMQ_PORT:?}/tcp"
+      - "${LMQ_PORT:?}:${LMQ_PORT:?}/udp"
+      - "${P2P_PORT:?}:${P2P_PORT:?}/tcp"
+      - "${QUORUMNET_PORT:?}:${QUORUMNET_PORT:?}/tcp"
     privileged: true
     stdin_open: true
     networks:
@@ -23,7 +33,12 @@ services:
     build:
       dockerfile: Dockerfile-storage-server
       context: ./.docker
+    environment:
+      - LMQ_PORT=${LMQ_PORT:?}
+      - STORAGE_SERVER_PORT=${STORAGE_SERVER_PORT:?}
     restart: unless-stopped
+    ports:
+      - "${STORAGE_SERVER_PORT:?}:${STORAGE_SERVER_PORT:?}/tcp"
     privileged: true
     networks:
       session:
@@ -40,8 +55,13 @@ services:
     build:
       dockerfile: Dockerfile-lokinet
       context: ./.docker
+    environment:
+      - SERVICE_NODE_IP_ADDRESS=${SERVICE_NODE_IP_ADDRESS:?}
+      - LOKINET_PORT=${LOKINET_PORT:?}
     privileged: true
     restart: unless-stopped
+    ports:
+      - "${LOKINET_PORT:?}:${LOKINET_PORT:?}/udp"
     networks:
       session:
         ipv4_address: 10.0.5.4
