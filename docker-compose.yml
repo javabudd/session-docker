@@ -25,6 +25,7 @@ services:
         ipv4_address: 10.0.5.2
     volumes:
       - ./oxen-data:/var/lib/oxen
+      - ./oxen-logs:/var/log/oxen
     ulimits:
       nproc: 65535
       nofile:

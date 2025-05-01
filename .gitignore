@@ -2,6 +2,7 @@
 ./oxen
 docker-compose.override.yml
 oxen-data
+oxen-logs
 lokinet-data
 storage-data
 .env
