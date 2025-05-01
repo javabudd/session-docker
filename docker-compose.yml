@@ -10,6 +10,7 @@ services:
       - STORAGE_SERVER_PORT=${STORAGE_SERVER_PORT:?}
       - P2P_PORT=${P2P_PORT:?}
       - QUORUMNET_PORT=${QUORUMNET_PORT:?}
+      - LOG_LEVEL=${LOG_LEVEL:-warning}
     restart: unless-stopped
     tty: true
     ports:
