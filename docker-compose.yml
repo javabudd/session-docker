@@ -10,6 +10,7 @@ services:
       - STORAGE_SERVER_PORT=${STORAGE_SERVER_PORT:?}
       - P2P_PORT=${P2P_PORT:?}
       - QUORUMNET_PORT=${QUORUMNET_PORT:?}
+      - LOG_LEVEL=${LOG_LEVEL:-warning}
     restart: unless-stopped
     tty: true
     ports:
@@ -24,6 +25,7 @@ services:
         ipv4_address: 10.0.5.2
     volumes:
       - ./oxen-data:/var/lib/oxen
+      - ./oxen-logs:/var/log/oxen
     ulimits:
       nproc: 65535
       nofile:

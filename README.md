@@ -10,6 +10,7 @@
 * Replace `SERVICE_NODE_IP_ADDRESS` with your external IP address in `.env`
 * Replace `L2_PROVIDER` with your desired l2 provider in `.env`
 * Update ports in `.env` if desired and make sure to forward them appropriately
+* (Optional) Change your desired oxend log-level in `.env`
 
 ## Example usage
 
